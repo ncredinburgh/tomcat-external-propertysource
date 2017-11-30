@@ -1,11 +1,45 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>com.github.ncredinburgh</groupId>
 	<artifactId>tomcat-external-propertysource</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<name>Tomcat External PropertySource</name>
 	<description>A Tomcat PropertySource class that reads provides property values from an external file.</description>
+	<url>https://github.com/ncredinburgh/tomcat-external-propertysource</url>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Grant Forrester</name>
+			<url>https://github.com/grantjforrester</url>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com:ncredinburgh/tomcat-external-propertysource.git</connection>
+		<developerConnection>scm:git:ssh://github.com:ncredinburgh/tomcat-external-propertysource.git</developerConnection>
+		<url>https://github.com:ncredinburgh/tomcat-external-propertysource.git</url>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
