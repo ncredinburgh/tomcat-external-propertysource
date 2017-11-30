@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ncredinburgh/tomcat-external-propertysource.svg?branch=master)](https://travis-ci.org/ncredinburgh/tomcat-external-propertysource)
+
 Tomcat External PropertySource
 ==============================
 
