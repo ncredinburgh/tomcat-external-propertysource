@@ -23,7 +23,7 @@ import org.apache.tomcat.util.IntrospectionUtils;
  * -Dcom.github.ncredinburgh.tomcat.ExternalPropertySource.FILENAME=tomcat.properties
  * </code>
  * 
- * The value of <code>com.github.ncredinburgh.tomcat.ExternalPropertySource.FILENAME<code> should point
+ * The value of <code>com.github.ncredinburgh.tomcat.ExternalPropertySource.FILENAME</code> should point
  * to a valid Java properties file.
  */
 public class ExternalPropertySource implements IntrospectionUtils.PropertySource {
