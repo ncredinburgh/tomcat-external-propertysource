@@ -1,7 +1,7 @@
 Tomcat External PropertySource
 ==============================
 
-This library provides an [Tomcat Property Source](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/tomcat/util/IntrospectionUtils.PropertySource.html) that reads property values from an external file. 
+This library provides a [Tomcat Property Source](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/tomcat/util/IntrospectionUtils.PropertySource.html) that reads property values from an external file. 
 
 
 Getting Started
@@ -21,6 +21,8 @@ Getting Started
 ```
 
 *Replace the value `tomcat.properties` with the path of your file.* 
+
+For more information on Tomcat property replacement and other system properties see the [Tomcat Configuration Reference](http://tomcat.apache.org/tomcat-7.0-doc/config/systemprops.html).
 
 Contributing
 ------------
