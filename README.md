@@ -24,6 +24,8 @@ Getting Started
 
 *Replace the value `tomcat.properties` with the path of your file.* 
 
+If a relative path is specified it will be resolved against the current working directory (system property `user.dir`).
+
 For more information on Tomcat property replacement and other system properties see the [Tomcat Configuration Reference](http://tomcat.apache.org/tomcat-7.0-doc/config/systemprops.html).
 
 Contributing

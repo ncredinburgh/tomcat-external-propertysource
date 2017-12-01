@@ -24,7 +24,8 @@ import org.apache.tomcat.util.IntrospectionUtils;
  * </code>
  * 
  * The value of <code>com.github.ncredinburgh.tomcat.ExternalPropertySource.FILENAME</code> should point
- * to a valid Java properties file.
+ * to a valid Java properties file.  If a relative path is specified it will be resolved against the current
+ * working directory (system property <code>user.dir</code>).
  */
 public class ExternalPropertySource implements IntrospectionUtils.PropertySource {
 	public static final String FILENAME = ExternalPropertySource.class.getName() + ".FILENAME";
@@ -35,11 +36,14 @@ public class ExternalPropertySource implements IntrospectionUtils.PropertySource
 		String filename = System.getProperty(FILENAME);
 		if (filename != null) {
 			File propertyFile = new File(filename);
+			if (!propertyFile.isAbsolute()) {
+				LOGGER.debug("Relative filenames are resolved against USER.DIR which is: " + System.getProperty("user.dir"));
+			}
 			if (propertyFile.exists()) {
-				LOGGER.info("Reading configuration properties from external file: " + filename);
+				LOGGER.info("Reading configuration properties from external file: " + propertyFile.getAbsolutePath());
 				properties.load(new FileInputStream(propertyFile));
 			} else {
-				LOGGER.warn("External configuration properties file not found: " + filename);
+				LOGGER.warn("External configuration properties file not found: " + propertyFile.getAbsolutePath());
 			}
 		}
 	}
