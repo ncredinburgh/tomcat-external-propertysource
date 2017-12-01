@@ -39,4 +39,4 @@ All contributions are welcome. Just fork this repository and send us a merge req
 Releases
 --------
 
--
+- 1.0 Initial release
