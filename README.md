@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/ncredinburgh/tomcat-external-propertysource.svg?branch=master)](https://travis-ci.org/ncredinburgh/tomcat-external-propertysource)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.ncredinburgh/tomcat-external-propertysource/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.ncredinburgh/tomcat-external-propertysource)
 
 Tomcat External PropertySource
 ==============================
