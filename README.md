@@ -6,7 +6,6 @@ Tomcat External PropertySource
 
 This library provides a [Tomcat Property Source](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/tomcat/util/IntrospectionUtils.PropertySource.html) that reads property values from an external file. 
 
-
 Getting Started
 ---------------
 ### Download the Library
@@ -28,6 +27,17 @@ Getting Started
 If a relative path is specified it will be resolved against the current working directory (system property `user.dir`).
 
 For more information on Tomcat property replacement and other system properties see the [Tomcat Configuration Reference](http://tomcat.apache.org/tomcat-7.0-doc/config/systemprops.html).
+
+Troubleshooting
+---------------
+Any error encountered during the loading of the property source will be logged to the Tomcat log file `$TOMCAT_HOME/logs/catalina.out`.  Errors encountered during the loading of the property source do not prevent Tomcat starting.  However, property values expected from the file will not be available.
+
+### Debug Logging
+The property source can write debug information to the Tomcat log file `$TOMCAT_HOME/logs/catalina.out` by adding the following line to the Tomcat logging configuration file `$TOMCAT_HOME/conf/tomcat.properties`:
+
+```
+com.github.ncredinburgh.tomcat.level = FINE
+```
 
 Contributing
 ------------

@@ -4,7 +4,7 @@
 	
 	<groupId>com.github.ncredinburgh</groupId>
 	<artifactId>tomcat-external-propertysource</artifactId>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	
 	<name>Tomcat External PropertySource</name>
 	<description>A Tomcat PropertySource class that reads provides property values from an external file.</description>
@@ -41,6 +41,11 @@
 		</repository>
 	</distributionManagement>
 
+	<properties>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
@@ -58,6 +63,18 @@
 	
 	<build>
 		<plugins>
+			<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-jar-plugin</artifactId>
+        		<configuration>
+          			<archive>
+            			<manifest>
+              				<addClasspath>true</addClasspath>
+              				<mainClass>com.github.ncredinburgh.tomcat.encryption.Main</mainClass>
+            			</manifest>
+          			</archive>
+        		</configuration>
+      		</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
