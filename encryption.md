@@ -4,7 +4,7 @@ Tomcat External PropertySource
 Encryption Support
 ------------------
 
-This tomcat property source allows property values to be stored in a property file that is encrypted.  By default the cipher used is AES in ECB mode with PKCS5 padding. The property source uses the Java Cryptography Architecture (JCA) for its cipher implementations. The cipher can be overridden with a system property. 
+This tomcat property source allows property values to be stored in a property file that is encrypted.  By default the cipher used is AES in ECB mode with PKCS#5 padding. The property source uses the Java Cryptography Architecture (JCA) for its cipher implementations. The cipher can be overridden with a system property. 
 
 ### Specifying the decryption key
 
@@ -24,7 +24,7 @@ If the property file was encypted using a cipher other than the default then the
 
 The cipher details (algorithm, mode & padding) are specified using the format defined in [`javax.crypto.Cipher`](https://docs.oracle.com/javase/7/docs/api/javax/crypto/Cipher.html).
 
-For example, in the Tomcat file `setenv.sh` the cipher DES in CBC mode with PKCS5 padding can be specified as follows:
+For example, in the Tomcat file `setenv.sh` the cipher DES in CBC mode with PKCS#5 padding can be specified as follows:
 
 ```
 CATALINA_OPTS="$CATALINA_OPTS -Dcom.github.ncredinburgh.tomcat.ExternalPropertySource.CIPHER=DES/CBC/PKCS5Padding"
@@ -70,21 +70,21 @@ The following commands are supported:
 
 * `generateKey <keyFilename> [<algorithm> <keySize>]`
 
- Generates a random encryption key into the named key file. By default the algorithm is `AES` and the key size is 128 bits. 
+ Generates a random encryption key into the named key file. By default the algorithm is `AES` and the key size is `128` bits. 
  
 > Use `listKeyGenerators` to see which key generators are supported by your JVM.
 
 * `encryptFile <inputFilename> <keyFilename> <outputFilename> [<algorithm/mode/padding>] [iv]`
 
- Encrypts the given input file using the given key file and writes to the given output file.  By default the algorithm `AES` is used in `ECB` mode with `PKCS5` padding. The defaults can be overridden by providing the algorithm, mode and padding through the additional argument in the format `algorithm/mode/padding`.
+ Encrypts the given input file using the given key file and writes to the given output file.  By default the algorithm `AES` is used in `ECB` mode with `PKCS5PADDING`. The defaults can be overridden by providing the algorithm, mode and padding through the additional argument in the format `algorithm/mode/padding`.
  
- If a cipher mode is used that requires an IV then an IV can be specified as the final argument in base64 encoding. If an IV is required but not specified then an appropriate new random IV will be generated and output to the console.
+ If a cipher mode is used that requires an IV then an IV can be specified as the final argument in base64 encoding. If an IV is required but not specified then an appropriate new random IV will be used and output to the console.
 
 > Use `listCiphers` to see which ciphers are supported by your JVM.
 
 * `decryptFile <inputFilename> <keyFilename> <outputFilename> [<algorithm/mode/padding>] [iv]`
 
- Decrypts the given input file using the given key file and writes to the given output file.  By default the algorithm `AES` is used in `ECB` mode with `PKCS5` padding. The defaults can be overridden by providing the algorithm, mode and padding through the additional argument in the format `algorithm/mode/padding`.
+ Decrypts the given input file using the given key file and writes to the given output file.  By default the algorithm `AES` is used in `ECB` mode with `PKCS5PADDING`. The defaults can be overridden by providing the algorithm, mode and padding through the additional argument in the format `algorithm/mode/padding`.
 
  If a cipher mode is used that requires an IV then the final argument must specify the IV using base64 encoding.
 
