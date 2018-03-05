@@ -19,12 +19,6 @@ public class ExternalPropertySourceTest {
 	}
 	
 	@Test
-	public void shouldLogWarningIfFileNotFound() throws Exception {
-		System.setProperty(ExternalPropertySource.FILENAME, "someFile");
-		testee = new ExternalPropertySource();
-	}
-	
-	@Test
 	public void shouldReturnPropertyValueIfInFile() throws Exception {
 		String filename = this.getClass().getResource("/testfile.properties").getFile(); 
 		System.setProperty(ExternalPropertySource.FILENAME, filename);
