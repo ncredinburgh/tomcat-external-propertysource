@@ -32,7 +32,7 @@ CATALINA_OPTS="$CATALINA_OPTS -Dcom.github.ncredinburgh.tomcat.ExternalPropertyS
 
 > Consult your JVM vendor documentation for details on which ciphers are supported by your JVM.
 
-### Speifying an initialization vector
+### Specifying an initialization vector
 
 Some cipher modes require an *initialization vector* or IV.  If a cipher mode is specified that requires an IV (e.g. CBC) then an IV must be provided using the system property `com.github.ncredinburgh.tomcat.ExternalPropertySource.CIPHERIV`. Otherwise an error will result.
 
@@ -90,3 +90,25 @@ The following commands are supported:
 
 > Use `listCiphers` to see which ciphers are supported by your JVM.
 
+Troubleshooting
+---------------
+
+Using encrypted properties requires the careful management of a number of moving parts and its easy to get these confused.  Below is a list of common errors and what they usually mean.
+
+`java.security.InvalidAlgorithmParameterException: Parameters missing`
+
+Happens when you have specified a cipher and mode that requires parameters (e.g. IV) and not provided them.  Specify an IV - see 'Specifying an initialization vector' or change to a cipher and mode that does not require parameters.
+
+`java.security.InvalidAlgorithmParameterException: ECB mode cannot use IV`
+
+Happens when a cipher and mode the does *not* require an IV is used but one is specified. Remove the given IV - see 'Specifying an initialization vector'  or change to a cipher and mode that requires an IV.
+
+`javax.crypto.IllegalBlockSizeException: Input length must be multiple of 16 when decrypting with padded cipher`
+
+Happens when using a block cipher mode but the length of the input is not a multiple of the cipher block size and no padding has been specified.
+
+Check you are not trying to decrypt an unencrypted file (e.g. a plain properties file). When encrypting a file, specify a padding form or use a cipher and mode that does not require fixed size blocks.
+
+`javax.crypto.BadPaddingException: Given final block not properly padded`
+
+Happens when you are trying to decrypt an encrytped file using the wrong algorithm, mode, padding or key.  Recommend you generate a new key and re-encrypt the file paying close attention to the parameters used.
