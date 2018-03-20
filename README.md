@@ -6,10 +6,6 @@ Tomcat External PropertySource
 
 This library provides a [Tomcat Property Source](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/tomcat/util/IntrospectionUtils.PropertySource.html) that reads property values from an external file. 
 
-### NEW in v1.1
-
-It is now possible to have encrypted property values stored in the property file and have Tomcat decrypt them in memory on startup.  See [Encryption Support](encryption.md) for more details. 
-
 Getting Started
 ---------------
 ### Download the Library
@@ -31,6 +27,10 @@ Getting Started
 If a relative path is specified it will be resolved against the current working directory (system property `user.dir`).
 
 For more information on Tomcat property replacement and other system properties see the [Tomcat Configuration Reference](http://tomcat.apache.org/tomcat-7.0-doc/config/systemprops.html).
+
+Encryption
+----------
+The property source allows the properties file to be stored in an encrypted form on disk for the purposes of security. During Tomcat startup the properties file is decrypted and used by Tomcat to perform property replacement.  See [Encryption Support](encryption.md) for more details. 
 
 Troubleshooting
 ---------------
@@ -54,5 +54,6 @@ All contributions are welcome. Just fork this repository and send us a merge req
 Releases
 --------
 
+- 1.2 Added options to specify whether to keep or remove input file (to ease automation)
 - 1.1 Added support for encrypted properties file
 - 1.0 Initial release
