@@ -6,4 +6,5 @@ public interface Cipher {
 
 	public byte[] decrypt(byte[] cipherBytes) throws CipherException;
 
+	public byte[] getIV();
 }

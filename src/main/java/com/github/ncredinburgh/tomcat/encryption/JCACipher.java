@@ -63,7 +63,7 @@ public class JCACipher implements Cipher {
 		} 
 	}
 	
-	byte[] getIV() {
+	public byte[] getIV() {
 		return ivSpec == null ? null : ivSpec.getIV();
 	}
 	
