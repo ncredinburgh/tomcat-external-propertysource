@@ -14,7 +14,7 @@ class ListKeyGeneratorsCommand implements Command {
 	}
 
 	@Override
-	public void doCommand(Queue<String> arguments) {
+	public void doCommand(Options options, Queue<String> arguments) {
 		// No arguments to process
 		listKeyGenerators();
 	}

@@ -4,7 +4,7 @@
 	
 	<groupId>com.github.ncredinburgh</groupId>
 	<artifactId>tomcat-external-propertysource</artifactId>
-	<version>1.1</version>
+	<version>1.2-SNAPSHOT</version>
 	
 	<name>Tomcat External PropertySource</name>
 	<description>A Tomcat PropertySource class that reads provides property values from an external file.</description>

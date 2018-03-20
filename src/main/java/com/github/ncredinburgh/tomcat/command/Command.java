@@ -8,7 +8,7 @@ public interface Command {
 	
 	public String getCommandKey();
 	
-	public void doCommand(Queue<String> arguments) throws UsageException, IOException, GeneralSecurityException;
+	public void doCommand(Options options, Queue<String> arguments) throws UsageException, IOException, GeneralSecurityException;
 	
 	public String getUsage();
 }

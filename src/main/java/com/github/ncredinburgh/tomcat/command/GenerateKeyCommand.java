@@ -20,7 +20,7 @@ class GenerateKeyCommand implements Command {
 	}
 
 	@Override
-	public void doCommand(Queue<String> arguments) throws UsageException, GeneralSecurityException, IOException {
+	public void doCommand(Options options, Queue<String> arguments) throws UsageException, GeneralSecurityException, IOException {
 		try {
 			String algorithm = Defaults.DEFAULT_ALGORITHM;
 			int keySize = Defaults.DEFAULT_KEY_SIZE;

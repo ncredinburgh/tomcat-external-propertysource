@@ -1,5 +1,6 @@
 package com.github.ncredinburgh.tomcat.command;
 
+import static com.github.ncredinburgh.tomcat.command.FileUtils.removeInputFileIfRequired;
 import static com.github.ncredinburgh.tomcat.command.IVEncoder.decodeIV;
 import static com.github.ncredinburgh.tomcat.encryption.PropertiesUtil.isPropertiesFile;
 import static java.lang.String.format;
@@ -28,7 +29,7 @@ class DecryptFileCommand implements Command {
 	}
 
 	@Override
-	public void doCommand(Queue<String> arguments) throws UsageException, IOException, GeneralSecurityException {
+	public void doCommand(Options options, Queue<String> arguments) throws UsageException, IOException, GeneralSecurityException {
 		try {
 			String cipherSpec = Defaults.DEFAULT_CIPHER_SPEC;
 			String iv = null;
@@ -48,10 +49,10 @@ class DecryptFileCommand implements Command {
 			}
 			decryptFile(inputFilename, keyFilename, outputFilename, cipherSpec, decodeIV(iv));
 			System.out.println(format("File %s decrypted to file %s", inputFilename, outputFilename));
+			removeInputFileIfRequired(options, inputFilename);
 		} catch (NoSuchElementException e) {
 			throw new UsageException(e);
 		}
-		
 	}
 
 	@Override

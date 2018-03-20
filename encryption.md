@@ -54,8 +54,10 @@ For convenience the property source provides a command line utility for performi
 You can execute the utility using the command line:
 
 ```
-$ java -jar tomcat-external-propertysource-1.1.jar <command> <options>
+$ java -jar tomcat-external-propertysource-1.1.jar <command> [<options>] <arguments>
 ``` 
+
+### Commands
 
 The following commands are supported:
 
@@ -89,6 +91,15 @@ The following commands are supported:
  If a cipher mode is used that requires an IV then the final argument must specify the IV using base64 encoding.
 
 > Use `listCiphers` to see which ciphers are supported by your JVM.
+
+### Options
+
+The following options are supported:
+
+* `-keep` Keep the input file after the command `encryptFile` or `decryptFile`.
+* `-remove` Remove the input file after the command `encryptFile` or `decryptFile`.
+
+If neither `-keep` or `-remove` is specifed the user will be asked if the input file should be removed after the `encryptFile` & `decryptFile` commands.
 
 Troubleshooting
 ---------------
