@@ -70,7 +70,7 @@
           			<archive>
             			<manifest>
               				<addClasspath>true</addClasspath>
-              				<mainClass>com.github.ncredinburgh.tomcat.encryption.Main</mainClass>
+              				<mainClass>com.github.ncredinburgh.tomcat.command.Main</mainClass>
             			</manifest>
           			</archive>
         		</configuration>
