@@ -56,6 +56,7 @@ public class Main {
 		System.out.println("Options:");
 		System.out.println("    -keep       Keep the input file after command encryptFile or decryptFile");
 		System.out.println("    -remove     Remove the input file after command encryptFile or decryptFile");
+		System.out.println("    -quiet      Suppress all info logging on standard out");
 	}
 
 	private static Command getCommand(String commandKey) throws UsageException {

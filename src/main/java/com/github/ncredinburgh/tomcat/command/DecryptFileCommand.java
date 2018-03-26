@@ -1,5 +1,6 @@
 package com.github.ncredinburgh.tomcat.command;
 
+import static com.github.ncredinburgh.tomcat.command.FileUtils.println;
 import static com.github.ncredinburgh.tomcat.command.FileUtils.removeInputFileIfRequired;
 import static com.github.ncredinburgh.tomcat.command.IVEncoder.decodeIV;
 import static com.github.ncredinburgh.tomcat.encryption.PropertiesUtil.isPropertiesFile;
@@ -45,10 +46,10 @@ class DecryptFileCommand implements Command {
 			}
 			
 			if (isPropertiesFile(new FileReader(inputFilename))) {
-				System.out.println("Warning: The input file does not look like an encrypted file");
+				println("Warning: The input file does not look like an encrypted file", options.isQuiet());
 			}
 			decryptFile(inputFilename, keyFilename, outputFilename, cipherSpec, decodeIV(iv));
-			System.out.println(format("File %s decrypted to file %s", inputFilename, outputFilename));
+			println(format("File %s decrypted to file %s", inputFilename, outputFilename), options.isQuiet());
 			removeInputFileIfRequired(options, inputFilename);
 		} catch (NoSuchElementException e) {
 			throw new UsageException(e);
