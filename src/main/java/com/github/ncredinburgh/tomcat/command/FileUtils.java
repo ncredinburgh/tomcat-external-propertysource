@@ -15,15 +15,22 @@ public class FileUtils {
 		if (options.containsKey(Options.OPT_REMOVE)) removeInputFile= true;
 		else if (options.containsKey(Options.OPT_KEEP)) removeInputFile = false;
 		else removeInputFile = askToRemoveInputFile(inputFilename);
-		
+
 		if (removeInputFile) {
 			delete(get(inputFilename));
-			System.out.println(format("Input file %s removed", inputFilename));
+			println(format("Input file %s removed", inputFilename), options.isQuiet());
 		} else {
-			System.out.println(format("Input file %s has not been removed", inputFilename));
+			println(format("Input file %s has not been removed", inputFilename), options.isQuiet());
 		} 
 	}
-	
+
+	public static void println(String msg, boolean isQuiet)
+	{
+		if (!isQuiet) {
+			System.out.println(msg);
+		}
+	}
+
 	private static boolean askToRemoveInputFile(String inputFilename) {
 		System.out.print(format("Remove input file %s? (Y|n) ", inputFilename));
 		Scanner scanner = new Scanner(System.in);

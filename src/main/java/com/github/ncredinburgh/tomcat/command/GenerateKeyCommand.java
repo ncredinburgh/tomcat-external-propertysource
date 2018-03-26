@@ -1,5 +1,7 @@
 package com.github.ncredinburgh.tomcat.command;
 
+import static com.github.ncredinburgh.tomcat.command.FileUtils.println;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,7 +34,7 @@ class GenerateKeyCommand implements Command {
 			}
 			
 			generateKey(keyFilename, algorithm, keySize);
-			System.out.println("New key written to file: " + keyFilename);
+			println("New key written to file: " + keyFilename, options.isQuiet());
 		} catch (NoSuchElementException e) {
 			throw new UsageException(e);
 		}

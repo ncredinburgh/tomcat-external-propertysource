@@ -8,4 +8,9 @@ public class Options extends HashMap<String, String> {
 	public static final String OPT = "-";
 	public static final String OPT_KEEP = OPT + "keep";
 	public static final String OPT_REMOVE = OPT + "remove";
+	private static final String OPT_QUIET = OPT + "quiet";
+
+	public boolean isQuiet() {
+		return containsKey(OPT_QUIET);
+	}
 }
